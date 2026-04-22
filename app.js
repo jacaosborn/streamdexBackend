@@ -4,10 +4,12 @@ const cors = require("cors");
 const app = express();
 const PORT = 3001;
 
-const PSPRICES_API_KEY = "81240253-d2fb-4ede-812d-30d0838d5391";
+const PSPRICES_API_KEY = process.env.PS_PRICES_API_KEY;
 const PSPRICES_BASE = "https://psprices.com/api/b2b/games/";
 
-app.use(cors({ origin: ["http://localhost:3000", "https://jacaosborn.github.io"] }));
+app.use(
+  cors({ origin: ["http://localhost:3000", "https://jacaosborn.github.io"] }),
+);
 
 app.get("/api/games", async (req, res) => {
   try {
